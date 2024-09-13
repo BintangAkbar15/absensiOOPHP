@@ -5,6 +5,7 @@
         "data": [
             {
                 "nama": "Virgianto",
+                "password" : "12345678",
                 "kelas": "12A",
                 "no_siswa": "G30SPKL",
                 "gender": "L",
