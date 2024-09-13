@@ -1,0 +1,531 @@
+[
+    {
+        "status" : 200,
+        "message" : "Success",
+        "data": [
+            {
+                "nama": "Virgianto",
+                "kelas": "12A",
+                "no_siswa": "G30SPKL",
+                "gender": "L",
+                "tanggal_lahir": "2003-07-28",
+                "status": "H",
+                "keterangan": "Siswa Hadir"
+            },
+            {
+                "nama": "Yulianto",
+                "kelas": "12A",
+                "no_siswa": "G30SPKL",
+                "gender": "L",
+                "tanggal_lahir": "2003-07-28",
+                "status": "H",
+                "keterangan": "Siswa Hadir"
+            }
+        ]
+    },
+    {
+        "status" : 201,
+        "message" : "Created",
+        "data": [
+            {
+                "error": "The request has been fulfilled and resulted in a new resource being created."
+            }
+        ]
+    },
+    {
+        "status" : 202,
+        "message" : "Accepted",
+        "data": [
+            {
+                "error": "The request has been accepted for processing, but the processing has not been completed."
+            }
+        ]
+    },
+    {
+        "status" : 203,
+        "message" : "Non-Authoritative Information",
+        "data": [
+            {
+                "error": "The request was successful, but the returned information may be from a local cache or a different source."
+            }
+        ]
+    },
+    {
+        "status" : 204,
+        "message" : "No Content",
+        "data": [
+            {
+                "error": "The server successfully processed the request, but is not returning any content."
+            }
+        ]
+    },
+    {
+        "status" : 205,
+        "message" : "Reset Content",
+        "data": [
+            {
+                "error": "The server has fulfilled the request and requires the requester to reset the document view."
+            }
+        ]
+    },
+    {
+        "status" : 206,
+        "message" : "Partial Content",
+        "data": [
+            {
+                "error": "The server is delivering only part of the resource due to a range header sent by the client."
+            }
+        ]
+    },
+    {
+        "status" : 207,
+        "message" : "Multi-Status",
+        "data": [
+            {
+                "error": "The message body contains an XML document describing the status of multiple independent operations."
+            }
+        ]
+    },
+    {
+        "status" : 208,
+        "message" : "Already Reported",
+        "data": [
+            {
+                "error": "The members of a DAV binding have already been enumerated in a previous part of the response."
+            }
+        ]
+    },
+    {
+        "status" : 226,
+        "message" : "IM Used",
+        "data": [
+            {
+                "error": "The server has fulfilled a request for the resource, and the response represents the result of one or more instance-manipulations applied to the current instance."
+            }
+        ]
+    },
+    {
+        "status" : 300,
+        "message" : "Multiple Choices",
+        "data": [
+            {
+                "error": "The request has more than one possible response. The user-agent or user should choose one of them."
+            }
+        ]
+    },
+    {
+        "status" : 301,
+        "message" : "Moved Permanently",
+        "data": [
+            {
+                "error": "The requested resource has been assigned a new permanent URI."
+            }
+        ]
+    },
+    {
+        "status" : 302,
+        "message" : "Found",
+        "data": [
+            {
+                "error": "The requested resource resides temporarily under a different URI."
+            }
+        ]
+    },
+    {
+        "status" : 303,
+        "message" : "See Other",
+        "data": [
+            {
+                "error": "The response to the request can be found under a different URI using the GET method."
+            }
+        ]
+    },
+    {
+        "status" : 304,
+        "message" : "Not Modified",
+        "data": [
+            {
+                "error": "The resource has not been modified since the last request."
+            }
+        ]
+    },
+    {
+        "status" : 305,
+        "message" : "Use Proxy",
+        "data": [
+            {
+                "error": "The requested resource must be accessed through the proxy given by the Location field."
+            }
+        ]
+    },
+    {
+        "status" : 307,
+        "message" : "Temporary Redirect",
+        "data": [
+            {
+                "error": "The request should be repeated with another URI; however, future requests should still use the original URI."
+            }
+        ]
+    },
+    {
+        "status" : 308,
+        "message" : "Permanent Redirect",
+        "data": [
+            {
+                "error": "The resource has been permanently moved to the URL given by the Location header."
+            }
+        ]
+    },
+    {
+        "status" : 400,
+        "message" : "Bad Request",
+        "data": [
+            {
+                "error": "The server cannot or will not process the request due to an apparent client error."
+            }
+        ]
+    },
+    {
+        "status" : 401,
+        "message" : "Unauthorized",
+        "data": [
+            {
+                "error": "Authentication is required and has failed or has not yet been provided."
+            }
+        ]
+    },
+    {
+        "status" : 402,
+        "message" : "Payment Required",
+        "data": [
+            {
+                "error": "Reserved for future use. The initial intention was for digital payment systems."
+            }
+        ]
+    },
+    {
+        "status" : 403,
+        "message" : "Forbidden",
+        "data": [
+            {
+                "error": "The server understands the request, but refuses to authorize it."
+            }
+        ]
+    },
+    {
+        "status" : 404,
+        "message" : "Not Found",
+        "data": [
+            {
+                "error": "The requested resource could not be found."
+            }
+        ]
+    },
+    {
+        "status" : 405,
+        "message" : "Method Not Allowed",
+        "data": [
+            {
+                "error": "The method specified in the request is not allowed for the resource identified by the URI."
+            }
+        ]
+    },
+    {
+        "status" : 406,
+        "message" : "Not Acceptable",
+        "data": [
+            {
+                "error": "The resource is capable of generating only content that is not acceptable according to the Accept headers sent in the request."
+            }
+        ]
+    },
+    {
+        "status" : 407,
+        "message" : "Proxy Authentication Required",
+        "data": [
+            {
+                "error": "The request must be authenticated by a proxy before it can be processed."
+            }
+        ]
+    },
+    {
+        "status" : 408,
+        "message" : "Request Timeout",
+        "data": [
+            {
+                "error": "The server timed out waiting for the request."
+            }
+        ]
+    },
+    {
+        "status" : 409,
+        "message" : "Conflict",
+        "data": [
+            {
+                "error": "The request could not be completed due to a conflict with the current state of the resource."
+            }
+        ]
+    },
+    {
+        "status" : 410,
+        "message" : "Gone",
+        "data": [
+            {
+                "error": "The resource requested is no longer available and will not be available again."
+            }
+        ]
+    },
+    {
+        "status" : 411,
+        "message" : "Length Required",
+        "data": [
+            {
+                "error": "The server refuses to accept the request without a defined Content-Length."
+            }
+        ]
+    },
+    {
+        "status" : 412,
+        "message" : "Precondition Failed",
+        "data": [
+            {
+                "error": "One or more conditions given in the request header fields evaluated to false."
+            }
+        ]
+    },
+    {
+        "status" : 413,
+        "message" : "Payload Too Large",
+        "data": [
+            {
+                "error": "The request is larger than the server is willing or able to process."
+            }
+        ]
+    },
+    {
+        "status" : 414,
+        "message" : "URI Too Long",
+        "data": [
+            {
+                "error": "The URI provided was too long for the server to process."
+            }
+        ]
+    },
+    {
+        "status" : 415,
+        "message" : "Unsupported Media Type",
+        "data": [
+            {
+                "error": "The media format of the requested data is not supported by the server for the HTTP method used."
+            }
+        ]
+    },
+    {
+        "status" : 416,
+        "message" : "Range Not Satisfiable",
+        "data": [
+            {
+                "error": "The server cannot satisfy the request range specified by the Range header."
+            }
+        ]
+    },
+    {
+        "status" : 417,
+        "message" : "Expectation Failed",
+        "data": [
+            {
+                "error": "The server cannot meet the requirements of the Expect request-header field."
+            }
+        ]
+    },
+    {
+        "status" : 418,
+        "message" : "I'm a teapot",
+        "data": [
+            {
+                "error": "Any attempt to instruct the teapot to perform a POST request will result in an error."
+            }
+        ]
+    },
+    {
+        "status" : 421,
+        "message" : "Misdirected Request",
+        "data": [
+            {
+                "error": "The request was directed at a server that is not able to produce a response."
+            }
+        ]
+    },
+    {
+        "status" : 422,
+        "message" : "Unprocessable Entity",
+        "data": [
+            {
+                "error": "The request was well-formed but was unable to be followed due to semantic errors."
+            }
+        ]
+    },
+    {
+        "status" : 423,
+        "message" : "Locked",
+        "data": [
+            {
+                "error": "The resource that is being accessed is locked."
+            }
+        ]
+    },
+    {
+        "status" : 424,
+        "message" : "Failed Dependency",
+        "data": [
+            {
+                "error": "The request failed due to failure of a previous request."
+            }
+        ]
+    },
+    {
+        "status" : 425,
+        "message" : "Too Early",
+        "data": [
+            {
+                "error": "The server is unwilling to risk processing a request that might be replayed."
+            }
+        ]
+    },
+    {
+        "status" : 426,
+        "message" : "Upgrade Required",
+        "data": [
+            {
+                "error": "The client should switch to a different protocol, such as TLS/1.0."
+            }
+        ]
+    },
+    {
+        "status" : 428,
+        "message" : "Precondition Required",
+        "data": [
+            {
+                "error": "The origin server requires the request to be conditional."
+            }
+        ]
+    },
+    {
+        "status" : 429,
+        "message" : "Too Many Requests",
+        "data": [
+            {
+                "error": "The user has sent too many requests in a given amount of time."
+            }
+        ]
+    },
+    {
+        "status" : 431,
+        "message" : "Request Header Fields Too Large",
+        "data": [
+            {
+                "error": "The server is unwilling to process the request because its header fields are too large."
+            }
+        ]
+    },
+    {
+        "status" : 451,
+        "message" : "Unavailable For Legal Reasons",
+        "data": [
+            {
+                "error": "The server is denying access to the resource as a consequence of a legal demand."
+            }
+        ]
+    },
+    {
+        "status" : 500,
+        "message" : "Internal Server Error",
+        "data": [
+            {
+                "error": "The server encountered an unexpected condition that prevented it from fulfilling the request."
+            }
+        ]
+    },
+    {
+        "status" : 501,
+        "message" : "Not Implemented",
+        "data": [
+            {
+                "error": "The server does not support the functionality required to fulfill the request."
+            }
+        ]
+    },
+    {
+        "status" : 502,
+        "message" : "Bad Gateway",
+        "data": [
+            {
+                "error": "The server, while acting as a gateway or proxy, received an invalid response from the upstream server."
+            }
+        ]
+    },
+    {
+        "status" : 503,
+        "message" : "Service Unavailable",
+        "data": [
+            {
+                "error": "The server is currently unable to handle the request due to temporary overloading or maintenance of the server."
+            }
+        ]
+    },
+    {
+        "status" : 504,
+        "message" : "Gateway Timeout",
+        "data": [
+            {
+                "error": "The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server."
+            }
+        ]
+    },
+    {
+        "status" : 505,
+        "message" : "HTTP Version Not Supported",
+        "data": [
+            {
+                "error": "The server does not support the HTTP protocol version that was used in the request."
+            }
+        ]
+    },
+    {
+        "status" : 506,
+        "message" : "Variant Also Negotiates",
+        "data": [
+            {
+                "error": "The server has an internal configuration error: transparent content negotiation for the request results in a circular reference."
+            }
+        ]
+    },
+    {
+        "status" : 507,
+        "message" : "Insufficient Storage",
+        "data": [
+            {
+                "error": "The server is unable to store the representation needed to complete the request."
+            }
+        ]
+    },
+    {
+        "status" : 508,
+        "message" : "Loop Detected",
+        "data": [
+            {
+                "error": "The server detected an infinite loop while processing a request with Depth: infinity."
+            }
+        ]
+    },
+    {
+        "status" : 510,
+        "message" : "Not Extended",
+        "data": [
+            {
+                "error": "Further extensions to the request are required for the server to fulfill it."
+            }
+        ]
+    }
+    
+]
