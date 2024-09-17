@@ -1,5 +1,8 @@
 <?php 
 include "controllers/controllerData.php";
+if(isset($_SESSION['login'])){
+  header("location: index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,8 +30,13 @@ include "controllers/controllerData.php";
                                     <label for="password">Password</label>
                                     <input type="password" name="password" id="password" class="form-control" required>
                                 </div>
+                                <div class="form-group">
+                                    <input type="checkbox" name="checkbox" id="checkbox" >
+                                    <label for="password" class="h6">Show Password</label>
+                                </div>
                                 <div class="form-group mt-2">
-                                    <button type="submit" name="login" class="btn btn-primary">Login</button>
+                                    <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
+                                    <a href="register.php">Don't have account?</a>
                                 </div>
                             </form>
                         </div>
@@ -37,5 +45,16 @@ include "controllers/controllerData.php";
             </div>
         </div>
     </div>
+    <script>
+        const check = document.getElementById("checkbox");
+        check.addEventListener("click", function() {
+            const pass = document.getElementById("password");
+            if(check.checked){
+                pass.setAttribute("type", "text");
+            }else{
+                pass.setAttribute("type", "password");
+            }
+        })
+    </script>
 </body>
 </html>
