@@ -13,6 +13,12 @@ if ($getdata->loadData()) {
 } else {
   echo "Data siswa gagal dimuat.";
 }
+
+if(isset($_POST['delete'])){
+  $deleting = $getdata->deleteDataByNoSiswa($_COOKIE['no_siswa']);
+}
+              
+
 ?>
 
 <!DOCTYPE html>
@@ -77,23 +83,80 @@ if ($getdata->loadData()) {
                   </div>
               </div>
             </div>
-            <div class="card bg-primary" id="pengajar" style="width: 12rem; height: max-content;">
+            <div class="card bg-primary" id="profile" style="width: 12rem; height: max-content;">
               <div class="card-body">
                   <div class=" row">
                       <div class="col-12 d-flex flex-column justify-content-center align-items-center gap-2 text-light">    
-                        <i class="fas fa-chalkboard-teacher" style="color:white; font-size: 5rem"></i>
-                          <h5 class="text-center">Lihat Guru</h5>
+                        <i class="fas fa-user" style="color:white; font-size: 5rem"></i>
+                          <h5 class="text-center">Profile</h5>
                       </div>
                   </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-12 justify-content-center d-flex">
+          <form action="" id="deleteForm" onsubmit="return submitForm(event)" method="post">
+            <button type="submit" name="delete" id="deleteBtn" class="btn btn-primary">
+              <i class="fa-solid fa-trash"></i> Hapus Akun
+            </button>
+          </form>
         </div>
+      </div>
       </div>
   </div>
 <script src="js/bootstrap.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Menangani event klik pada tombol delete
+    function submitForm(event) {
+      event.preventDefault(); // Mencegah submit form secara langsung
+      
+      // Tampilkan SweetAlert untuk konfirmasi penghapusan
+      Swal.fire({
+        title: "Apakah Anda yakin?",
+        text: "Akun Anda tidak bisa dikembalikan!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya, hapus akun!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Jika pengguna mengkonfirmasi penghapusan
+          
+          // Menggunakan fetch API untuk mengirimkan request ke server tanpa reload
+          fetch("", {
+            method: "POST",
+            body: new URLSearchParams({
+              "delete": true // Mengirimkan data delete ke server
+            })
+          })
+          .then(response => response.text())
+          .then(data => {
+            // Tampilkan pesan sukses dengan SweetAlert
+            Swal.fire({
+              title: "Dihapus!",
+              text: "Akun Anda berhasil dihapus.",
+              icon: "success"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "controllers/logout.php";
+              }
+            });
+          })
+          .catch(error => {
+            console.error("Terjadi kesalahan:", error);
+          });
+        }
+      });
+    }
+</script>
+
 </body>
 </html>

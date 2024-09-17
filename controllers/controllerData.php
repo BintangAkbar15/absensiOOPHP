@@ -16,6 +16,10 @@ class Absensi {
     public function getSiswaData() {
         return $this->jsondata;
     }
+
+    public function saveData($data) {
+        file_put_contents('data/Absen.json', json_encode($data, JSON_PRETTY_PRINT));
+    }
 }
 
 class Akun extends Absensi implements User {
@@ -129,6 +133,33 @@ class Akun extends Absensi implements User {
         // Simpan perubahan ke file JSON
         $this->dataSiswa = $data; // Set data yang diperbarui ke property dataSiswa
         return $this->simpanData();
+    }
+
+    public function deleteDataByNoSiswa($no_siswa) {
+        $data = json_decode(file_get_contents('data/data.json'));
+        
+        // Check if data exists and iterate through the data
+        foreach ($data as &$item) {
+            if ($item['status'] == 200 && isset($item['data'])) {
+                // Search for the student with the matching no_siswa
+                foreach ($item['data'] as $key => $student) {
+                    if (isset($student['no_siswa']) && $student['no_siswa'] == $no_siswa) {
+                        // Delete the student if found
+                        unset($item['data'][$key]);
+                        
+                        // Reindex the array after deletion
+                        $item['data'] = array_values($item['data']);
+                        
+                        // Save the updated data back to the file
+                        $this->saveData($data);
+                        
+                        return true; // Return true to indicate successful deletion
+                    }
+                }
+            }
+        }
+        
+        return false; // Return false if no student with the given no_siswa was found
     }
     
     public function showSuccess() {

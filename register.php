@@ -25,12 +25,7 @@ if(isset($_POST['register'])){
     
     if($namates == "" || $passwordtes == "" || $kelastes == "" || $no_siswates == "" || $gendertes == "" || $tanggal_lahirtes == ""){
         echo "<script>
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Data Tidak Boleh Kosong',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
+                alert('lengkapi data anda')
             </script>";
     } else {
         $success = $getdata->tambahSiswa($username, $password, $kelas, $no_siswa, $gender, $tanggal_lahir);
@@ -118,19 +113,70 @@ if(isset($_POST['register'])){
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        <?php if(isset($_POST['register'])&&$getdata->showSuccess()):?>
-            
-            Swal.fire({
-            title: 'The Internet?',
-            text: 'That thing is still around?',
-            icon: 'success'
-            }).then((result) => {
-            if(result.isConfirmed){
-                window.location.href = 'login.php';
-                }
-            });
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const no_siswa = document.getElementById("no_siswa").value;
+        const kelas = document.getElementById("kelas").value;
+        const tgl_lahir = document.getElementById("tgl_lahir").value;
+        const gender = document.getElementById("gender").value;
+        const register = document.getElementById("register").value;
 
-        <?php endif ?>
+function submitForm(event) {
+    if(username.trim() === "" || password.trim() === "" || no_siswa.trim() === "" || kelas.trim() === "" || tgl_lahir.trim() === "" || gender.trim() === "" || register.trim() === "") {
+      event.preventDefault(); // Mencegah submit form secara langsung
+        Swal.fire({
+        title: "data tidak lengkap",
+        text: "Akun Anda tidak bisa dikembalikan!",
+        icon: "warning"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Jika pengguna mengkonfirmasi penghapusan
+          window.location.href = "register.php";
+        }
+      })
+    }else{
+      event.preventDefault(); // Mencegah submit form secara langsung
+      
+      // Tampilkan SweetAlert untuk konfirmasi penghapusan
+      Swal.fire({
+        title: "Apakah Anda yakin?",
+        text: "Akun Anda tidak bisa dikembalikan!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ya, hapus akun!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Jika pengguna mengkonfirmasi penghapusan
+          
+          // Menggunakan fetch API untuk mengirimkan request ke server tanpa reload
+          fetch("", {
+            method: "POST",
+            body: new URLSearchParams({
+              "register": true 
+            })
+          })
+          .then(response => response.text())
+          .then(data => {
+            // Tampilkan pesan sukses dengan SweetAlert
+            Swal.fire({
+              title: "Dihapus!",
+              text: "Akun Anda berhasil dihapus.",
+              icon: "success"
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "controllers/logout.php";
+              }
+            });
+          })
+          .catch(error => {
+            console.error("Terjadi kesalahan:", error);
+          });
+        }
+      });
+    }
+}
     </script>
 </body>
 </html>

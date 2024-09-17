@@ -2,28 +2,13 @@
 include '../controllers/controllerDataAbsensi.php';
 date_default_timezone_set('Asia/Jakarta');
 
-if(isset($_GET['tanggal'])){
-    if(isset($_POST['submit'])){
-        $tanggal = $_GET['tanggal'];
-        $status = $_POST['status'];
-        $keterangan = $_POST['keterangan'];
-        $newdata = [
-            "no_siswa" => $_COOKIE['no_siswa'],
-            "kelas" => $_COOKIE['kelas'],
-            "tanggal" => $_GET['tanggal'],
-            "jam_masuk" => $_GET['jam_masuk'],
-            "status" => $status,
-            "keterangan" => $keterangan
-        ];
-        $absensi->editSiswaByDate($_COOKIE['no_siswa'], $tanggal, $newdata);
-    }
-}else{
-    if(isset($_POST['submit'])){
-        $absensi->tambahSiswa($_COOKIE['no_siswa'],$_COOKIE['kelas'],date('Y-m-d', time()),$_POST['status'],$_POST['keterangan'],date('H:i:s', time()));
+if(isset($_POST['submit'])){
+    $data = $absensi->tambahSiswa($_COOKIE['no_siswa'],$_COOKIE['kelas'],date('Y-m-d', time()),$_POST['status'],$_POST['keterangan'],date('H:i:s', time()));
+    if($data){
+        header("Location: log-kehadiran.php");
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

@@ -41,11 +41,11 @@ $dataSiswa = $absensi->getSiswaById($_COOKIE['no_siswa']);
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 text-center p-5 pb-3">
-              <h5>NOMOR SISWA - NAMA SISWA</h5>
+              <h5><?= $_COOKIE['no_siswa'] ?> - <?= $_COOKIE['username'] ?></h5>
             </div>
             <div class="col-12 d-flex justify-content-around pb-3 gap-2">
               <button  class="btn btn-primary" id="presensi"><i class="fa-solid fa-door-open"></i> Absen Sekarang</button>
-              <button class="btn btn-primary"><i class="fa-solid fa-print"></i> Print Kehadiran Anda</button>
+              <button class="btn btn-primary"><a class="nav-link" href="print.php"><i class="fa-solid fa-print"></i> Print Kehadiran Anda</a></button>
             </div>
             <div class="col-8 mt-4">
               <table class="table text-center table-stripped">
@@ -101,7 +101,7 @@ $dataSiswa = $absensi->getSiswaById($_COOKIE['no_siswa']);
                       <?php echo $siswa->keterangan ?>
                     </td>
                     <td>
-                      <a href="upresensi.php?index=<?= $no ?>&tanggal=<?= $siswa->tanggal ?>&jam_masuk=<?= $siswa->jam_masuk ?>" class="btn btn-primary">Edit</a>
+                      <a href="upresensi.php?index=&tanggal=<?= $siswa->tanggal ?>&jam_masuk=<?= $siswa->jam_masuk ?>" class="btn btn-primary">Edit</a>
                     </td>
                   </tr>
                   <?php endforeach ;
@@ -115,7 +115,7 @@ $dataSiswa = $absensi->getSiswaById($_COOKIE['no_siswa']);
             </div>
           </div>
         </div>
-    <div class="container d-grid justify-content-center align-items-center gap-3 mt-5">
+    </div>
 <script src="../js/bootstrap.js"></script>
 <script src="../js/popper.min.js"></script>
 <script src="../index.js"></script>

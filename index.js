@@ -10,6 +10,6 @@ kehadiran.addEventListener("click", function() {
     window.location.href = "content/log-kehadiran.php";
 })
 
-pengajar.addEventListener("click", function() {
-    window.location.href = "content/pengajar.php";
+profile.addEventListener("click", function() {
+    window.location.href = "content/profile.php";
 })

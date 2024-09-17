@@ -30,27 +30,6 @@ class siswa extends Absensi{
         }
         return false;
     }
-
-    public function editSiswaByDate($no_siswa, $tanggal, $newData) {
-        if (!$this->dataSiswa) {
-            return false;
-        }
-    
-        foreach ($this->dataSiswa as &$item) {
-            if ($item->status == 200 && $item->message == "Success") {
-                foreach ($item->data as &$siswa) {
-                    // Cek apakah nomor siswa dan tanggal sesuai
-                    if ($siswa->no_siswa == $no_siswa && $siswa->tanggal == $tanggal) {
-                        // Gantikan seluruh objek siswa dengan data baru
-                        $siswa = (object) $newData; // Pastikan $newData dikonversi ke stdClass jika perlu
-                        echo $siswa; // Simpan perubahan
-                    }
-                }
-            }
-        }
-    
-        return false; // Jika tidak ditemukan
-    }
     
     public function getSiswaById($no_siswa) {
         if (!$this->dataSiswa) {

@@ -18,36 +18,46 @@ class DataSource {
 }
 
 class DataBump extends DataSource {
-    // Add a method to load a specific student's data by index
-    public function loadStudent($index) {
+    // Load student by no_siswa
+    public function loadStudentByNoSiswa($no_siswa) {
         $data = $this->source();
         foreach ($data as $block) {
-            if ($block['status'] == 200 && isset($block['data'][$index])) {
-                return $block['data'][$index];
+            if ($block['status'] == 200 && isset($block['data'])) {
+                // Search for the student with the matching no_siswa
+                foreach ($block['data'] as $student) {
+                    if (isset($student['no_siswa']) && $student['no_siswa'] == $no_siswa) {
+                        return $student;
+                    }
+                }
             }
         }
         return null;
     }
 
-    // Method to save updated student data
-    public function updateStudent($index, $updatedData) {
+    // Update student by no_siswa
+    public function updateStudentByNoSiswa($no_siswa, $updatedData) {
         $data = $this->source();
         foreach ($data as &$block) {
-            if ($block['status'] == 200 && isset($block['data'][$index])) {
-                $block['data'][$index] = $updatedData;
-                $this->saveData($block['data'][$index]);
-                return true;
+            if ($block['status'] == 200 && isset($block['data'])) {
+                // Search for the student with the matching no_siswa
+                foreach ($block['data'] as &$student) {
+                    if (isset($student['no_siswa']) && $student['no_siswa'] == $no_siswa) {
+                        // Update the student's data
+                        $student = $updatedData;
+                        $this->saveData($data);
+                        return true; // Return true if update is successful
+                    }
+                }
             }
         }
-        return false;
+        return false; // Return false if no student with the given no_siswa was found
     }
 }
 
 $obj = new DataBump();
 
 // Handle form submission
-if (isset($_POST['update'])) {
-    $index = $_POST['index'];
+if (isset($_POST['submit'])) {
     
     $tanggal = $_GET['tanggal'];
     $status = $_POST['status'];
@@ -61,18 +71,14 @@ if (isset($_POST['update'])) {
         "keterangan" => $keterangan
     ];
     
-    if ($obj->updateStudent($index, $updatedData)) {
+    if ($obj->updateStudentByNoSiswa($_COOKIE['no_siswa'], $updatedData)) {
         header("Location: log-kehadiran.php"); // Redirect to main page after update
         exit;
-    }
-    else{
-        echo"GAGAL weh";
     }
 }
 
 // Load data for the student to edit
-$index = ($_GET['index']) - 1;
-$student = $obj->loadStudent($index);
+$student = $obj->loadStudentByNoSiswa($_COOKIE['no_siswa']);
 ?>
 
 

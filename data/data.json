@@ -6,10 +6,9 @@
             {
                 "nama": "Virgianto",
                 "password": "12345678",
-                "kelas": "12A",
+                "kelas": "12F",
                 "no_siswa": "G30SPKL",
                 "gender": "L",
-                "jabatan": "siswa",
                 "tanggal_lahir": "2003-07-28"
             },
             {
@@ -22,7 +21,7 @@
                 "tanggal_lahir": "2001-10-30"
             },
             {
-                "nama": "Nadira",
+                "nama": "Nadira Nasya",
                 "password": "nadiraNasya123",
                 "kelas": "12C",
                 "no_siswa": "231150783295",
@@ -34,8 +33,8 @@
                 "password": "abcdefg",
                 "kelas": "12C",
                 "no_siswa": "23119677769",
-                "gender": "L",
-                "tanggal_lahir": "2007-04-15"
+                "gender": "P",
+                "tanggal_lahir": "2005-04-15"
             },
             {
                 "nama": "Bintang",
@@ -66,7 +65,7 @@
                 "password": "sadasdsadasd",
                 "kelas": "12B",
                 "no_siswa": "231119810706",
-                "gender": "L",
+                "gender": "P",
                 "tanggal_lahir": "2021-12-30"
             }
         ]
